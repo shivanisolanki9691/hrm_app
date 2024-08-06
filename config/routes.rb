@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     sessions: 'employees/sessions',
     registrations: 'employees/registrations'
   }, defaults: { format: :json }
+
 end

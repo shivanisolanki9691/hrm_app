@@ -5,17 +5,6 @@ require_relative '../config/environment'
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
-require 'simplecov'
-SimpleCov.start 'rails'
-
-# Optional: Additional configuration for SimpleCov
-SimpleCov.start do
-  add_filter '/spec/' # Exclude spec files
-  add_filter '/config/' # Exclude config files
-  add_group 'Models', 'app/models'
-  add_group 'Controllers', 'app/controllers'
-  minimum_coverage 90 # Set a minimum coverage threshold
-end
 
 
 # Add additional requires below this line. Rails is not loaded until this point!

@@ -1,5 +1,6 @@
 class Employees::RegistrationsController < Devise::RegistrationsController
   skip_before_action :verify_authenticity_token
+  skip_before_action :authenticate_request, only: :create
   respond_to :json
 
   def create

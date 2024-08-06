@@ -4,7 +4,7 @@ class Employee < ApplicationRecord
 
   has_many :authentication_tokens, dependent: :destroy
   validates :email, presence: true, uniqueness: true
-  # validates :first_name, :last_name, :phone_number, :hire_date, :salary, :address, presence: true
+  validates :first_name, :last_name, :phone_number, :hire_date, :salary, :address, presence: true
   validate :password_complexity
 
   def generate_jwt
