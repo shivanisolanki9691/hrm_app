@@ -6,4 +6,12 @@ Rails.application.routes.draw do
     registrations: 'employees/registrations'
   }, defaults: { format: :json }
 
+  resources :leaves
+  resources :positions
+  resources :departments
+  resources :attendances
+  resources :payrolls
+  resources :performances
+  resources :recruitments
+  resources :candidates
 end

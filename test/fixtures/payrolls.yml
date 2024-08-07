@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee: one
+  salary_date: 2024-08-06
+  basic_salary: 9.99
+  bonus: 9.99
+  deductions: 9.99
+  net_salary: 9.99
+
+two:
+  employee: two
+  salary_date: 2024-08-06
+  basic_salary: 9.99
+  bonus: 9.99
+  deductions: 9.99
+  net_salary: 9.99
