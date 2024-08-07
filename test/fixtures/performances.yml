@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee: one
+  review_date: 2024-08-06
+  rating: 1
+  comments: MyText
+
+two:
+  employee: two
+  review_date: 2024-08-06
+  rating: 1
+  comments: MyText

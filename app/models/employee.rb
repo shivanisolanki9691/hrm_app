@@ -2,6 +2,17 @@ class Employee < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
 
+         belongs_to :position, optional: true
+         belongs_to :department, optional: true
+         has_many :attendances
+         has_many :payrolls
+         has_many :performances
+         has_many :recruitments
+         has_many :leaves
+         has_many :candidates
+
+
+         
   has_many :authentication_tokens, dependent: :destroy
   validates :email, presence: true, uniqueness: true
   validates :first_name, :last_name, :phone_number, :hire_date, :salary, :address, presence: true

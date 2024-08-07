@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job_title: MyString
+  department: one
+  posting_date: 2024-08-06
+  application_deadline: 2024-08-06
+  status: MyString
+
+two:
+  job_title: MyString
+  department: two
+  posting_date: 2024-08-06
+  application_deadline: 2024-08-06
+  status: MyString
