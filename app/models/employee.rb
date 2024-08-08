@@ -17,6 +17,14 @@ class Employee < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :first_name, :last_name, :phone_number, :hire_date, :salary, :address, presence: true
   validate :password_complexity
+   # Define your associations
+  # belongs_to :department
+  # belongs_to :manager
+
+  # Allow only the necessary associations to be searchable
+  # def self.ransackable_associations(auth_object = nil)
+  #   ["department", "manager"]
+  # end
 
   def generate_jwt
     JWT.encode({ employee_id: id, exp: 24.hours.from_now.to_i }, Rails.application.secret_key_base)

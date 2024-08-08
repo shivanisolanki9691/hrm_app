@@ -17,5 +17,5 @@ RSpec.describe DepartmentsController, type: :controller do
   #     post :create, params: { department: {name: @department.name, location: @department.location }}
   #     expect(response).to have_http_status(:success)
   #   end
-  end
+  # end
 end
