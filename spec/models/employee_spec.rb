@@ -14,7 +14,7 @@ RSpec.describe Employee, type: :model do
     end
 
     it 'is not valid with a non-unique email' do
-      Employee.create!(email: 'test@example.com', password: 'Password1', password_confirmation: 'Password1', first_name: 'Jane', last_name: 'Doe', phone_number: '0987654321', hire_date: Date.today, salary: 60000, address: '456 Elm St')
+      Employee.create!(email: 'test@example.com', password: 'Password1', password_confirmation: 'Password1', first_name: 'Jane', last_name: 'Doe', phone_number: '0987654321', hire_date: Date.today, salary: 60000, address: '456 Elm St', position_id: 1, department_id: 1)
       expect(employee).not_to be_valid
     end
 

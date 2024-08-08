@@ -1,4 +1,5 @@
 class DepartmentsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_department, only: %i[show update destroy]
 
   def index
@@ -42,3 +43,4 @@ class DepartmentsController < ApplicationController
     params.require(:department).permit(:name, :location)
   end
 end
+

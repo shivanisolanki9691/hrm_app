@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_request, unless: :skip_authentication?
 
-
-
   private
 
   def authenticate_request
