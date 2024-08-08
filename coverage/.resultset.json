@@ -9,18 +9,18 @@
           1,
           null,
           1,
-          9,
-          9,
-          9,
+          0,
+          0,
+          0,
           0,
           0,
           null,
-          9,
+          0,
           null,
           null,
           null,
           1,
-          9,
+          2,
           null,
           null
         ]
@@ -216,7 +216,7 @@
           1,
           null,
           1,
-          0,
+          1,
           null,
           null,
           1,
@@ -229,61 +229,72 @@
           1,
           null,
           1,
-          0,
+          2,
           null,
-          0,
+          2,
           0,
           null,
           null,
           null
         ]
       },
-      "/home/hp/ROR/hrm_app/app/controllers/departments_controller.rb": {
+      "/home/hp/ROR/hrm_app/app/controllers/employees/registrations_controller.rb": {
         "lines": [
           1,
           1,
           1,
+          1,
           null,
           1,
-          0,
-          0,
-          null,
-          null,
+          1,
+          1,
           1,
           0,
           null,
-          null,
           1,
-          0,
-          0,
-          0,
           null,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
           null,
           null,
           1,
           null,
           1,
-          0,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/hp/ROR/hrm_app/app/controllers/employees/sessions_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
           1,
           0,
+          0,
+          0,
           null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
           null,
           null
         ]
@@ -296,6 +307,16 @@
           null,
           1,
           null,
+          null
+        ]
+      },
+      "/home/hp/ROR/hrm_app/app/models/position.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
           null
         ]
       },
@@ -419,11 +440,19 @@
         "branches": {
         }
       },
-      "/home/hp/ROR/hrm_app/app/controllers/employees/registrations_controller.rb": {
+      "/home/hp/ROR/hrm_app/app/controllers/departments_controller.rb": {
         "lines": [
           0,
           0,
           0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
           0,
           null,
           0,
@@ -434,8 +463,24 @@
           0,
           0,
           0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           0,
           null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
           0,
           null,
           0,
@@ -443,43 +488,6 @@
           0,
           0,
           null
-        ],
-        "branches": {
-        }
-      },
-      "/home/hp/ROR/hrm_app/app/controllers/employees/sessions_controller.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0
         ],
         "branches": {
         }
@@ -874,18 +882,6 @@
         "branches": {
         }
       },
-      "/home/hp/ROR/hrm_app/app/models/position.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          null,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
       "/home/hp/ROR/hrm_app/app/models/recruitment.rb": {
         "lines": [
           0,
@@ -899,6 +895,6 @@
         }
       }
     },
-    "timestamp": 1723091873
+    "timestamp": 1723094181
   }
 }

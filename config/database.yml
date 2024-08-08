@@ -1,23 +1,22 @@
-
 default: &default
  adapter: postgresql
  encoding: unicode
- database: hrm_development
- username: rails
+ database: rails_database
+ username: rails_app
  password: password
  pool: 5
  host: localhost
 
 development:
  <<: *default
- database: hrm_development
+ database: rails_database
 
 test:
  <<: *default
- database: hrm_test
+ database: rails_database
 
 production:
  <<: *default
- database: hrm_production
- username: rails
+ database: rails_database
+ username: rails_app
  password: <%= ENV["AUTH_DATABASE_PASSWORD"] %>

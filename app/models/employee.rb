@@ -2,29 +2,22 @@ class Employee < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
 
-         belongs_to :position, optional: true
-         belongs_to :department, optional: true
-         has_many :attendances
-         has_many :payrolls
-         has_many :performances
-         has_many :recruitments
-         has_many :leaves
-         has_many :candidates
-
-
-         
+  belongs_to :position, optional: true
+  belongs_to :department, optional: true
+  has_many :attendances
+  has_many :payrolls
+  has_many :performances
+  has_many :recruitments
+  has_many :leaves, class_name: 'Leave'
+  has_many :candidates 
   has_many :authentication_tokens, dependent: :destroy
   validates :email, presence: true, uniqueness: true
   validates :first_name, :last_name, :phone_number, :hire_date, :salary, :address, presence: true
   validate :password_complexity
-   # Define your associations
-  # belongs_to :department
-  # belongs_to :manager
-
-  # Allow only the necessary associations to be searchable
-  # def self.ransackable_associations(auth_object = nil)
-  #   ["department", "manager"]
-  # end
+  
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 
   def generate_jwt
     JWT.encode({ employee_id: id, exp: 24.hours.from_now.to_i }, Rails.application.secret_key_base)

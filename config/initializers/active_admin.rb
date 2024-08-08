@@ -7,8 +7,8 @@ ActiveAdmin.setup do |config|
   config.site_title = "Hrm App"
 
   meta_tags_options = { viewport: 'width=device-width, initial-scale=1' }
-config.meta_tags = meta_tags_options
-config.meta_tags_for_logged_out_pages = meta_tags_options
+  config.meta_tags = meta_tags_options
+  config.meta_tags_for_logged_out_pages = meta_tags_options
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
@@ -16,6 +16,7 @@ config.meta_tags_for_logged_out_pages = meta_tags_options
 
   # Set an optional image to be displayed for the header
   # instead of a string (overrides :site_title)
+  # config.filters = false
   #
   # Note: Aim for an image that's 21px high so it fits in the header.
   #
@@ -303,7 +304,7 @@ config.meta_tags_for_logged_out_pages = meta_tags_options
   # hand side with a filter for each attribute of the registered model.
   # You can enable or disable them for all resources here.
   #
-  # config.filters = true
+  config.filters = true
   #
   # By default the filters include associations in a select, which means
   # that every record will be loaded for each association (up

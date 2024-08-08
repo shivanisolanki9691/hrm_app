@@ -1,8 +1,9 @@
 # require 'rails_helper'
 
-# RSpec.describe DepartmentsController, type: :controller do
+# RSpec.describe PositionsController, type: :controller do
 #   before(:each) do
-#     @department = Department.create!(name: 'HR', location: 'Building A')
+#     @department = Department.create!(name: 'HR', location: "indore")
+#     @position = Position.create!(title: 'Manager', department_id: @department.id)
 #   end
 
 #   describe "index#get" do
@@ -14,22 +15,22 @@
 
 #   describe "show#get" do
 #     it "returns a success response" do
-#       get :show, params: { id: @department.id }
+#       get :show, params: { id: @position.id }
 #       expect(response.status).to eq 200
 #     end
 #   end
 
 #   describe "create#post" do
 #     context "with valid params" do
-#       it "creates a new Department" do
-#         post :create, params: { department: { name: 'Finance', location: 'Building B' } }
+#       it "creates a new Position" do
+#         post :create, params: { position: { title: 'New Position', department_id: @department.id } }
 #         expect(response.status).to eq 201
 #       end
 #     end
 
 #     context "with invalid params" do
 #       it "renders a JSON response with errors" do
-#         post :create, params: { department: { name: nil, location: 'Building B' } }
+#         post :create, params: { position: { title: nil, department_id: @department.id } }
 #         expect(response.status).to eq 422
 #       end
 #     end
@@ -37,28 +38,27 @@
 
 #   describe "update#put" do
 #     context "with valid params" do
-#       it "updates the requested department" do
-#         put :update, params: { id: @department.id, department: { name: 'HR Updated', location: 'Building A' } }
+#       it "updates the requested position" do
+#         put :update, params: { id: @position.id, position: { title: 'Senior Manager' } }
 #         expect(response.status).to eq 200
-#         @department.reload
-#         expect(@department.name).to eq 'HR Updated'
+#         @position.reload
+#         expect(@position.title).to eq 'Senior Manager'
 #       end
 #     end
 
 #     context "with invalid params" do
 #       it "renders a JSON response with errors" do
-#         put :update, params: { id: @department.id, department: { name: nil } }
+#         put :update, params: { id: @position.id, position: { title: nil } }
 #         expect(response.status).to eq 422
 #       end
 #     end
 #   end
 
 #   describe "delete#destroy" do
-#     it "destroys the requested department" do
-#       delete :destroy, params: { id: @department.id }
+#     it "destroys the requested position" do
+#       delete :destroy, params: { id: @position.id }
 #       expect(response.status).to eq 204
-#       expect(Department.find_by(id: @department.id)).to be_nil
+#       expect(Position.find_by(id: @position.id)).to be_nil
 #     end
 #   end
 # end
-
