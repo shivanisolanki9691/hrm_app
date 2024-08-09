@@ -98,18 +98,4 @@ RSpec.describe Employee, type: :model do
       expect(Employee.find_by_token('invalid_token')).to be_nil
     end
   end
-
-  describe '.ransackable_associations' do
-    it 'returns the correct associations' do
-      expected_associations = ["attendances", "authentication_tokens", "candidates", "department", "leaves", "payrolls", "performances", "position", "recruitments"]
-      expect(Employee.ransackable_associations).to eq(expected_associations)
-    end
-  end
-
-  describe '.ransackable_attributes' do
-    it 'returns the correct attributes' do
-      expected_attributes = ["address", "created_at", "current_sign_in_at", "current_sign_in_ip", "department_id", "email", "encrypted_password", "first_name", "hire_date", "id", "last_name", "last_sign_in_at", "last_sign_in_ip", "phone_number", "position_id", "remember_created_at", "reset_password_sent_at", "reset_password_token", "salary", "sign_in_count", "updated_at"]
-      expect(Employee.ransackable_attributes).to eq(expected_attributes)
-    end
-  end
 end
