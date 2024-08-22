@@ -1,6 +1,6 @@
 class DepartmentsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :authenticate_user!, only: [:create, :update, :destroy]
+  before_action :authenticate_request, only: [:create]
 
   def create
     @department = Department.new(department_params)

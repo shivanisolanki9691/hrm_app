@@ -1,64 +1,44 @@
-# require 'rails_helper'
+require 'rails_helper'
 
-# RSpec.describe DepartmentsController, type: :controller do
-#   before(:each) do
-#     @department = Department.create!(name: 'HR', location: 'Building A')
-#   end
+RSpec.describe DepartmentsController, type: :controller do
+  let(:valid_attributes) { { name: 'HR', location: 'New York' } }
+  let(:invalid_attributes) { { name: '', location: '' } }
 
-#   describe "index#get" do
-#     it "returns a success response" do
-#       get :index
-#       expect(response.status).to eq 200
-#     end
-#   end
+  describe 'POST #create' do
+    context 'when authenticated' do
+      before do
+        allow(controller).to receive(:authenticate_request).and_return(true)
+      end
 
-#   describe "show#get" do
-#     it "returns a success response" do
-#       get :show, params: { id: @department.id }
-#       expect(response.status).to eq 200
-#     end
-#   end
+      context 'with valid attributes' do
+        it 'creates a new Department' do
+          expect {
+            post :create, params: { department: valid_attributes }, as: :json
+          }.to change(Department, :count).by(1)
+        end
 
-#   describe "create#post" do
-#     context "with valid params" do
-#       it "creates a new Department" do
-#         post :create, params: { department: { name: 'Finance', location: 'Building B' } }
-#         expect(response.status).to eq 201
-#       end
-#     end
+        it 'renders a JSON response with the new department' do
+          post :create, params: { department: valid_attributes }, as: :json
+          expect(response).to have_http_status(:created)
+          expect(response.content_type).to include('application/json')
+          expect(JSON.parse(response.body)['name']).to eq('HR')
+        end
+      end
 
-#     context "with invalid params" do
-#       it "renders a JSON response with errors" do
-#         post :create, params: { department: { name: nil, location: 'Building B' } }
-#         expect(response.status).to eq 422
-#       end
-#     end
-#   end
+      context 'with invalid attributes' do
+        it 'does not create a new Department' do
+          expect {
+            post :create, params: { department: invalid_attributes }, as: :json
+          }.to change(Department, :count).by(0)
+        end
 
-#   describe "update#put" do
-#     context "with valid params" do
-#       it "updates the requested department" do
-#         put :update, params: { id: @department.id, department: { name: 'HR Updated', location: 'Building A' } }
-#         expect(response.status).to eq 200
-#         @department.reload
-#         expect(@department.name).to eq 'HR Updated'
-#       end
-#     end
-
-#     context "with invalid params" do
-#       it "renders a JSON response with errors" do
-#         put :update, params: { id: @department.id, department: { name: nil } }
-#         expect(response.status).to eq 422
-#       end
-#     end
-#   end
-
-#   describe "delete#destroy" do
-#     it "destroys the requested department" do
-#       delete :destroy, params: { id: @department.id }
-#       expect(response.status).to eq 204
-#       expect(Department.find_by(id: @department.id)).to be_nil
-#     end
-#   end
-# end
-
+        it 'renders a JSON response with errors for the new department' do
+          post :create, params: { department: invalid_attributes }, as: :json
+          expect(response).to have_http_status(:unprocessable_entity)
+          expect(response.content_type).to include('application/json')
+          expect(JSON.parse(response.body)['name']).to include("can't be blank")
+        end
+      end
+    end
+  end
+end
