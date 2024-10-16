@@ -14,6 +14,7 @@ ActiveAdmin.register Employee do
     column :address
     column :position
     column :department
+    column :role
     actions
   end
 
@@ -30,6 +31,7 @@ ActiveAdmin.register Employee do
       f.input :department, as: :select, collection: Department.all.collect { |department| [department.name, department.id] }
       f.input :password
       f.input :password_confirmation
+      f.input :role
     end
     f.actions
   end
@@ -49,6 +51,7 @@ ActiveAdmin.register Employee do
       row :department do |employee|
         employee.department.name if employee.department
       end
+      row :role
       row :created_at
       row :updated_at
     end

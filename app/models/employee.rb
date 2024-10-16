@@ -1,4 +1,5 @@
 class Employee < ApplicationRecord
+  after_initialize :set_default_role, if: :new_record?
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
 
@@ -38,5 +39,13 @@ class Employee < ApplicationRecord
     unless password.match(/^(?=.*[A-Z])(?=.*\d)/)
       errors.add :password, 'must include at least one uppercase letter and one digit'
     end
+  end
+
+  def set_default_role
+    self.role ||= 'employee' # Default role
+  end
+
+  def admin?
+    role == 'admin'
   end
 end

@@ -1,22 +1,38 @@
+# PostgreSQL. Versions 9.3 and up are supported.
+#
+# Install the pg driver:
+#   gem install pg
+#
+# Configure Using Gemfile
+# gem 'pg'
+
 default: &default
- adapter: postgresql
- encoding: unicode
- database: rails_database
- username: rails_app
- password: password
- pool: 5
- host: localhost
+  adapter: postgresql
+  encoding: unicode
+  port: 5432
+
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
- <<: *default
- database: rails_database
+  <<: *default
+  database: rails  # Updated to specify a unique database name
+  username: rails                # Ensure this user exists in PostgreSQL
+  password: rails                # Ensure this password is correct
+  host: localhost
 
 test:
- <<: *default
- database: rails_database
+  <<: *default
+  database: rails          # Updated to specify a unique test database name
+  username: rails               # Ensure this user exists in PostgreSQL
+  password: rails               # Ensure this password is correct
+  host: localhost
 
 production:
- <<: *default
- database: rails_database
- username: rails_app
- password: <%= ENV["AUTH_DATABASE_PASSWORD"] %>
+  <<: *default
+  database: rails   # Updated to specify a unique production database name
+  username: <%= ENV['DATABASE_USERNAME'] %>  # Use environment variables for sensitive info
+  password: <%= ENV['DATABASE_PASSWORD'] %>  # Use environment variables for sensitive info
+  host: <%= ENV['DATABASE_HOST'] || 'localhost' %>  # Allow overriding the host via environment variable
+

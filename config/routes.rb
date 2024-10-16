@@ -14,4 +14,10 @@ Rails.application.routes.draw do
   resources :performances
   resources :recruitments
   resources :candidates
+
+  resources :employees do
+    resources :attendances
+  end
+
+
 end

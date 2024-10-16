@@ -2,6 +2,7 @@
 
 class DeviseCreateAdminUsers < ActiveRecord::Migration[7.0]
   def change
+    unless table_exists?(:admin_users)
     create_table :admin_users do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
@@ -40,5 +41,6 @@ class DeviseCreateAdminUsers < ActiveRecord::Migration[7.0]
     add_index :admin_users, :reset_password_token, unique: true
     # add_index :admin_users, :confirmation_token,   unique: true
     # add_index :admin_users, :unlock_token,         unique: true
+    end
   end
 end

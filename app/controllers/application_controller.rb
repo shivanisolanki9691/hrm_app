@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_request, unless: :skip_authentication?
 
+  rescue_from CanCan::AccessDenied do |exception|
+    render json: { error: exception.message }, status: :forbidden
+  end
+
+
+
   private
 
   def authenticate_request

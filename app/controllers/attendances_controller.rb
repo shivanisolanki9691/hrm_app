@@ -1,17 +1,14 @@
 class AttendancesController < ApplicationController
-  before_action :set_attendance, only: %i[show update destroy]
+  load_and_authorize_resource
 
   def index
-    @attendances = Attendance.all
-    render json: @attendances
-  end
-
-  def show
-    render json: @attendance
+    @attendances = Attendance.all.includes(:employee)
+    render json: @attendances 
   end
 
   def create
     @attendance = Attendance.new(attendance_params)
+    @attendance.employee = current_employee 
     if @attendance.save
       render json: @attendance, status: :created
     else
@@ -20,6 +17,7 @@ class AttendancesController < ApplicationController
   end
 
   def update
+    @attendance = Attendance.find(params[:id])
     if @attendance.update(attendance_params)
       render json: @attendance
     else
@@ -28,17 +26,14 @@ class AttendancesController < ApplicationController
   end
 
   def destroy
+    @attendance = Attendance.find(params[:id])
     @attendance.destroy
-    head :no_content
+    head :no_content 
   end
 
   private
 
-  def set_attendance
-    @attendance = Attendance.find(params[:id])
-  end
-
   def attendance_params
-    params.require(:attendance).permit(:employee_id, :date, :clock_in, :clock_out)
+    params.require(:attendance).permit(:clock_in, :clock_out)
   end
 end

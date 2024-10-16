@@ -10,7 +10,7 @@ ActiveAdmin.register Attendance do
       attendance.employee.full_name if attendance.employee
     end
     column :date
-    column :clock_in
+    column :_in
     column :clock_out
     actions
   end
